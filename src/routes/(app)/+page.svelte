@@ -1,4 +1,6 @@
 <script>
+	import Unit from '$lib/components/Unit.svelte';
+	import Plts from '$lib/components/Plts.svelte';
 	import { onMount } from 'svelte';
 	// import Pltd from '../../lib/components/PLTD.svelte';
 	// import Plts from '../../lib/components/PLTS.svelte';
@@ -86,13 +88,38 @@
 <section class="desktop">
 	<div class="container-fluid">
 		{#if error}
-			<p>Error: {error}</p>
+			<p class="text-center p-5">Error: {error}</p>
 		{:else}
-			<div class="row">
+			<div class="row text-center">
+				<h5>50.00 Hz</h5>
 				<div class="col-8">
-					<h1>PLTD Tahuna</h1>
+					<div class="row gx-3">
+						<div class="col-3 py-2">
+							<Unit unit={1} />
+						</div>
+						<div class="col-3 py-2">
+							<Unit unit={4} />
+						</div>
+						<div class="col-3 py-2">
+							<Unit unit={5} />
+						</div>
+						<div class="col-3 py-2">
+							<Unit unit={6} />
+						</div>
+					</div>
+					<div class="row gx-3">
+						<div class="col-3 py-2">
+							<Unit unit={7} />
+						</div>
+						<div class="col-3 py-2">
+							<Unit unit={8} />
+						</div>
+						<div class="col-3 py-2">
+							<Unit unit={9} />
+						</div>
+					</div>
 				</div>
-				<div class="col-4"><h1>PLTS Sangihe</h1></div>
+				<div class="col-4 py-2"><Plts /></div>
 			</div>
 		{/if}
 	</div>
@@ -125,3 +152,11 @@
 		}
 	}
 </style> -->
+
+<style>
+	h5 {
+		margin: 0px;
+		font-size: 2.3rem;
+		font-weight: 900;
+	}
+</style>
