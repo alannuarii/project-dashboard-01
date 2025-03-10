@@ -1,136 +1,70 @@
+<script>
+	import Battery from './Battery.svelte';
+	import WeatherStation from './WeatherStation.svelte';
+
+	export let weatherData;
+	export let it1Data;
+	export let it2Data;
+	export let lvsw1Data;
+	export let lvsw2Data;
+
+	const isDataAvailable = (data) => data && data.length > 0;
+
+	console.log(lvsw1Data);
+	console.log(lvsw2Data);
+</script>
+
 <div class="card rounded-0 border-4 p-2">
 	<div class="mb-2">
 		<h5>PLTS</h5>
-		<span class="badge rounded-0 text-bg-success">Operating</span>
+		{#if isDataAvailable(lvsw1Data) || isDataAvailable(lvsw2Data)}
+			{#if lvsw1Data[0]._value + lvsw2Data[0]._value !== 0}
+				<span class="badge rounded-0 text-bg-success">Operating</span>
+			{:else}
+				<span class="badge rounded-0 text-bg-warning">Standby</span>
+			{/if}
+		{/if}
 	</div>
-	<div class="row gx-2">
-		<div class="col-4">
-			<div class="card rounded-0 mb-2">
-				<div class="card-header">Active Power</div>
-				<div class="card-body">
-					<h6>600 kW</h6>
+	{#if isDataAvailable(lvsw1Data) || isDataAvailable(lvsw2Data)}
+		<div class="row gx-2">
+			<div class="col-4">
+				<div class="card rounded-0 mb-2">
+					<div class="card-header">Active Power</div>
+					<div class="card-body">
+						<h6>{(lvsw1Data[0]._value + lvsw2Data[0]._value).toFixed(0)} kW</h6>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="card rounded-0 mb-2">
+					<div class="card-header">Reactive Power</div>
+					<div class="card-body">
+						<h6>{(lvsw1Data[4]._value + lvsw2Data[4]._value).toFixed(0)} kVAR</h6>
+					</div>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="card rounded-0 mb-2">
+					<div class="card-header">Power Factor</div>
+					<div class="card-body">
+						<h6>
+							{lvsw1Data[3]._value !== 0
+								? lvsw1Data[3]._value.toFixed(2)
+								: lvsw2Data[3]._value.toFixed(2)}
+						</h6>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-4">
-			<div class="card rounded-0 mb-2">
-				<div class="card-header">Reactive Power</div>
-				<div class="card-body">
-					<h6>200 kVAR</h6>
-				</div>
-			</div>
-		</div>
-		<div class="col-4">
-			<div class="card rounded-0 mb-2">
-				<div class="card-header">Power Factor</div>
-				<div class="card-body">
-					<h6>0.95</h6>
-				</div>
-			</div>
-		</div>
-	</div>
+	{:else}
+		<h5 class="text-center">Loading</h5>
+	{/if}
 
-	<div class="card rounded-0 mb-2">
-		<div class="card-header">Battery Storage System</div>
-		<div class="card-body">
-			<div class="row gx-2">
-				<div class="col-6">
-					<div class="card rounded-0 mb-2">
-						<div class="card-header">Feeder #1</div>
-						<div class="card-body">
-							<h6>45 kW</h6>
-						</div>
-					</div>
-				</div>
-				<div class="col-6">
-					<div class="card rounded-0 mb-2">
-						<div class="card-header">Feeder #2</div>
-						<div class="card-body">
-							<h6>45 kW</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row gx-2">
-				<div class="col-6">
-					<div class="card rounded-0 mb-2">
-						<div class="card-header">Status</div>
-						<div class="card-body">
-							<h6>Discharging</h6>
-						</div>
-					</div>
-				</div>
-				<div class="col-6">
-					<div class="card rounded-0 mb-2">
-						<div class="card-header">Status</div>
-						<div class="card-body">
-							<h6>Charging</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- BSS  -->
+	<Battery {it1Data} {it2Data} />
 
-	<div class="card rounded-0 mb-2">
-		<div class="card-header">Weather Station</div>
-		<div class="card-body">
-			<div>
-				<div class="row gx-2">
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">Air Temperature</div>
-							<div class="card-body">
-								<h6>600 kW</h6>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">External Temperature</div>
-							<div class="card-body">
-								<h6>200 kVAR</h6>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">Global Irradiance</div>
-							<div class="card-body">
-								<h6>0.95</h6>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row gx-2">
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">Relative Humidity</div>
-							<div class="card-body">
-								<h6>600 kW</h6>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">Wind Direction</div>
-							<div class="card-body">
-								<h6>200 kVAR</h6>
-							</div>
-						</div>
-					</div>
-					<div class="col-4">
-						<div class="card rounded-0 mb-2">
-							<div class="card-header">Wind Speed</div>
-							<div class="card-body">
-								<h6>0.95</h6>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- Weather Station  -->
+	<WeatherStation {weatherData} />
 </div>
 
 <style>

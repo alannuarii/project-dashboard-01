@@ -76,10 +76,52 @@
 		}
 	};
 
+	const noData = [
+		{ _value: 'N/A' },
+		{ _value: 'N/A' },
+		{ _value: 'N/A' },
+		{ _value: 'N/A' },
+		{ _value: 'N/A' },
+		{ _value: 'N/A' },
+		{ _value: 'N/A' }
+	];
+
+	const notOperating = [
+		{ _value: 0 },
+		{ _value: 0 },
+		{ _value: 0 },
+		{ _value: 0 },
+		{ _value: 0 },
+		{ _value: '-' },
+		{ _value: 0 }
+	];
+
+	const dgData = (data) => (data && data.length > 0 ? data : notOperating);
+
+	const isDataAvailable = (data) => data && data.length > 0;
+
+	$: frequency = () => {
+		if (isDataAvailable(dg9Data)) {
+			return dg9Data[4]._value;
+		} else if (isDataAvailable(dg8Data)) {
+			return dg8Data[4]._value;
+		} else if (isDataAvailable(dg7Data)) {
+			return dg7Data[4]._value;
+		} else if (isDataAvailable(dg6Data)) {
+			return dg6Data[4]._value;
+		} else if (isDataAvailable(dg1Data)) {
+			return dg1Data[4]._value;
+		} else {
+			return 0.0;
+		}
+	};
+
+	$:console.log(lvsw1Data);
+
 	onMount(() => {
 		fetchData();
 
-		const interval = setInterval(fetchData, 5000);
+		const interval = setInterval(fetchData, 1000);
 
 		return () => clearInterval(interval);
 	});
@@ -91,35 +133,39 @@
 			<p class="text-center p-5">Error: {error}</p>
 		{:else}
 			<div class="row text-center">
-				<h5>50.00 Hz</h5>
+				{#if isDataAvailable(dg9Data) || isDataAvailable(dg8Data) || isDataAvailable(dg7Data) || isDataAvailable(dg6Data) || isDataAvailable(dg1Data)}
+					<h5 class="text-light">{frequency().toFixed(2)} Hz</h5>
+				{/if}
 				<div class="col-8">
 					<div class="row gx-3">
 						<div class="col-3 py-2">
-							<Unit unit={1} />
+							<Unit unit={1} dgData={dgData(dg1Data)} />
 						</div>
 						<div class="col-3 py-2">
-							<Unit unit={4} />
+							<Unit unit={4} dgData={dgData(noData)} />
 						</div>
 						<div class="col-3 py-2">
-							<Unit unit={5} />
+							<Unit unit={5} dgData={dgData(noData)} />
 						</div>
 						<div class="col-3 py-2">
-							<Unit unit={6} />
+							<Unit unit={6} dgData={dgData(dg6Data)} />
 						</div>
 					</div>
 					<div class="row gx-3">
 						<div class="col-3 py-2">
-							<Unit unit={7} />
+							<Unit unit={7} dgData={dgData(dg7Data)} />
 						</div>
 						<div class="col-3 py-2">
-							<Unit unit={8} />
+							<Unit unit={8} dgData={dgData(dg8Data)} />
 						</div>
 						<div class="col-3 py-2">
-							<Unit unit={9} />
+							<Unit unit={9} dgData={dgData(dg9Data)} />
 						</div>
 					</div>
 				</div>
-				<div class="col-4 py-2"><Plts /></div>
+				<div class="col-4 py-2">
+					<Plts {weatherData} {it1Data} {it2Data} {lvsw1Data} {lvsw2Data} />
+				</div>
 			</div>
 		{/if}
 	</div>
