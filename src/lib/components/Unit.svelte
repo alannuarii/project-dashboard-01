@@ -5,9 +5,9 @@
 	const isDataAvailable = (data) => data && data.length > 0;
 </script>
 
-<div class="card rounded-0 border-4 p-2">
+<div class="card bg-dark rounded-0 border-2 border-light p-2">
 	<div class="mb-2">
-		<h5>Unit {unit}</h5>
+		<h5 class="text-light">Unit {unit}</h5>
 		{#if dgData[0]._value !== 0 && dgData[0]._value !== 'N/A'}
 			<span class="badge rounded-0 text-bg-success">Operating</span>
 		{:else if dgData[0]._value === 0}
@@ -18,20 +18,20 @@
 	</div>
 	{#if isDataAvailable(dgData)}
 		<div class="card rounded-0 mb-2">
-			<div class="card-header">Active Power</div>
-			<div class="card-body">
+			<div class="card-header bg-dark text-light">Active Power</div>
+			<div class="card-body bg-dark-subtle">
 				<h6>{dgData[0]._value > 0 ? dgData[0]._value.toFixed(0) : 0} kW</h6>
 			</div>
 		</div>
 		<div class="card rounded-0 mb-2">
-			<div class="card-header">Reactive Power</div>
-			<div class="card-body">
+			<div class="card-header bg-dark text-light">Reactive Power</div>
+			<div class="card-body bg-dark-subtle">
 				<h6>{dgData[6]._value > 0 ? dgData[6]._value.toFixed(0) : 0} kVAR</h6>
 			</div>
 		</div>
 		<div class="card rounded-0">
-			<div class="card-header">Power Factor</div>
-			<div class="card-body">
+			<div class="card-header bg-dark text-light">Power Factor</div>
+			<div class="card-body bg-dark-subtle">
 				<h6>{dgData[5]._value > 0 ? dgData[5]._value.toFixed(2) : 0}</h6>
 			</div>
 		</div>

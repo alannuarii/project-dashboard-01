@@ -116,8 +116,6 @@
 		}
 	};
 
-	$:console.log(lvsw1Data);
-
 	onMount(() => {
 		fetchData();
 

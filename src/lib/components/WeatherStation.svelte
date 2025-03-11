@@ -31,31 +31,31 @@
 </script>
 
 <div class="card rounded-0 mb-2">
-	<div class="card-header">Weather Station</div>
+	<div class="card-header bg-dark text-light">Weather Station</div>
 	{#if isDataAvailable(weatherData)}
-		<div class="card-body">
+		<div class="card-body bg-dark">
 			<div>
 				<div class="row gx-2">
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">Air Temperature</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">Air Temperature</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[0]._value.toFixed(0)} {units(weatherData[0]._field)}</h6>
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">External Temperature</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">External Temperature</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[1]._value.toFixed(0)} {units(weatherData[1]._field)}</h6>
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">Global Irradiance</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">Global Irradiance</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[2]._value.toFixed(0)} {units(weatherData[2]._field)}</h6>
 							</div>
 						</div>
@@ -64,24 +64,24 @@
 				<div class="row gx-2">
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">Relative Humidity</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">Relative Humidity</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[3]._value.toFixed(0)} {units(weatherData[3]._field)}</h6>
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">Wind Direction</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">Wind Direction</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[4]._value.toFixed(0)}{units(weatherData[4]._field)}</h6>
 							</div>
 						</div>
 					</div>
 					<div class="col-4">
 						<div class="card rounded-0 mb-2">
-							<div class="card-header">Wind Speed</div>
-							<div class="card-body">
+							<div class="card-header bg-dark text-light">Wind Speed</div>
+							<div class="card-body bg-dark-subtle">
 								<h6>{weatherData[5]._value.toFixed(0)} {units(weatherData[5]._field)}</h6>
 							</div>
 						</div>

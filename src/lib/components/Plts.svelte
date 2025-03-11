@@ -9,14 +9,11 @@
 	export let lvsw2Data;
 
 	const isDataAvailable = (data) => data && data.length > 0;
-
-	console.log(lvsw1Data);
-	console.log(lvsw2Data);
 </script>
 
-<div class="card rounded-0 border-4 p-2">
+<div class="card bg-dark rounded-0 border-2 border-light p-2">
 	<div class="mb-2">
-		<h5>PLTS</h5>
+		<h5 class="text-light">PLTS</h5>
 		{#if isDataAvailable(lvsw1Data) || isDataAvailable(lvsw2Data)}
 			{#if lvsw1Data[0]._value + lvsw2Data[0]._value !== 0}
 				<span class="badge rounded-0 text-bg-success">Operating</span>
@@ -29,24 +26,24 @@
 		<div class="row gx-2">
 			<div class="col-4">
 				<div class="card rounded-0 mb-2">
-					<div class="card-header">Active Power</div>
-					<div class="card-body">
+					<div class="card-header bg-dark text-light">Active Power</div>
+					<div class="card-body bg-dark-subtle">
 						<h6>{(lvsw1Data[0]._value + lvsw2Data[0]._value).toFixed(0)} kW</h6>
 					</div>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="card rounded-0 mb-2">
-					<div class="card-header">Reactive Power</div>
-					<div class="card-body">
+					<div class="card-header bg-dark text-light">Reactive Power</div>
+					<div class="card-body bg-dark-subtle">
 						<h6>{(lvsw1Data[4]._value + lvsw2Data[4]._value).toFixed(0)} kVAR</h6>
 					</div>
 				</div>
 			</div>
 			<div class="col-4">
 				<div class="card rounded-0 mb-2">
-					<div class="card-header">Power Factor</div>
-					<div class="card-body">
+					<div class="card-header bg-dark text-light">Power Factor</div>
+					<div class="card-body bg-dark-subtle">
 						<h6>
 							{lvsw1Data[3]._value !== 0
 								? lvsw1Data[3]._value.toFixed(2)
