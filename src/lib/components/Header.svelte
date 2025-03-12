@@ -11,7 +11,8 @@
 		</a>
 		<div class="d-flex align-items-center">
 			<div class="me-4"><Timer /></div>
-			<button class="btn btn-sm btn-danger border-2 border rounded-0 text-light">Logout</button>
+			<!-- svelte-ignore a11y_consider_explicit_label -->
+			<a href="/logout" class="btn btn-sm btn-danger border-2 border rounded-0 text-light">Logout</a>
 		</div>
 	</div>
 </nav>

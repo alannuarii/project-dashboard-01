@@ -40,8 +40,11 @@
 	},
 	"dependencies": {
 		"@influxdata/influxdb-client": "^1.35.0",
+		"@oslojs/encoding": "^1.1.0",
 		"dotenv": "^16.4.7",
 		"drizzle-orm": "^0.40.0",
+		"google-auth-library": "^9.15.1",
+		"jsonwebtoken": "^9.0.2",
 		"postgres": "^3.4.5"
 	}
 }
