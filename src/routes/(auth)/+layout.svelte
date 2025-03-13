@@ -1,6 +1,6 @@
 <svelte:head>
 	<title>Login | Dashboard PLTD Tahuna</title>
-    <meta name="description" content="Dashboard PLTD Tahuna" />
+	<meta name="description" content="Dashboard PLTD Tahuna" />
 </svelte:head>
 
 <main class="container-fluid d-flex justify-content-center align-items-center">

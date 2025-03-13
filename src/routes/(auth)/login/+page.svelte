@@ -1,8 +1,18 @@
-<section>
-	<div class="card p-5 shadow">
-		<h2 class="text-center fw-bolder mb-4">LOGIN</h2>
+<script>
+	import logo from '$lib/img/np.png';
+</script>
+
+<section class="container-fluid d-flex justify-content-center align-items-center w-50">
+	<div class="card bg-dark p-5 shadow rounded-0">
+		<div class="d-flex justify-content-center">
+			<img src={logo} class="img-fluid mb-4" alt="" />
+		</div>
+		<div class="text-center text-light">
+			<h5 class="fw-bold">LOGIN</h5>
+			<h6 class="">DASHBOARD PLTD TAHUNA</h6>
+		</div>
 		<div>
-			<a href="/api/auth/login" class="btn btn-secondary w-100"
+			<a href="/api/auth/login" class="btn btn-secondary w-100 rounded-0"
 				><i class="bi-google me-2"></i>Login with Google Account</a
 			>
 		</div>
@@ -10,8 +20,16 @@
 </section>
 
 <style>
-	.card {
-		border-radius: 10px 10px 40px 40px;
-		border-bottom: solid 10px #6e6455 !important;
+	img {
+		width: 35%;
+	}
+	/* Mobile specific */
+	@media screen and (max-width: 1000px) {
+		section {
+			width: 100% !important;
+		}
+		img {
+			width: 75%;
+		}
 	}
 </style>
