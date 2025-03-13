@@ -2,8 +2,6 @@
 	export let it1Data;
 	export let it2Data;
 
-	console.log(it1Data);
-	console.log(it2Data);
 	const isDataAvailable = (data) => data && data.length > 0;
 </script>
 

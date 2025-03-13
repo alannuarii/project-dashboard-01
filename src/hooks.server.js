@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
  
- const JWT_SECRET = "your_jwt_secret"; // Gunakan kunci rahasia yang kuat
+const JWT_SECRET = process.env.JWT_SECRET; // Gunakan kunci rahasia yang kuat
  
  export async function handle({ event, resolve }) {
      const token = event.cookies.get("auth");

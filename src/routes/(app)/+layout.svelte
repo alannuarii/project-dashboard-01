@@ -16,11 +16,17 @@
 </main>
 
 <style>
-	.desktop .content {
+	.content {
 		height: 100vh;
 		overflow-x: hidden;
 		overflow-y: auto;
 		padding-top: 55px;
 		/* padding-bottom: 50px; */
+	}
+	/* Mobile specific */
+	@media screen and (max-width: 1000px) {
+		.content {
+			padding-top: 60px;
+		}
 	}
 </style>

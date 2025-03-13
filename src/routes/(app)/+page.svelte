@@ -1,6 +1,7 @@
 <script>
 	import Unit from '$lib/components/Unit.svelte';
 	import Plts from '$lib/components/Plts.svelte';
+	import Timer from '$lib/components/Timer.svelte';
 	import { onMount } from 'svelte';
 	// import Pltd from '../../lib/components/PLTD.svelte';
 	// import Plts from '../../lib/components/PLTS.svelte';
@@ -131,37 +132,39 @@
 			<p class="text-center p-5">Error: {error}</p>
 		{:else}
 			<div class="row text-center">
+				<h4 class="text-light mb-2 d-md-none">Dashboard PLTD Tahuna</h4>
+				<div class="mb-2 d-md-none"><Timer /></div>
 				{#if isDataAvailable(dg9Data) || isDataAvailable(dg8Data) || isDataAvailable(dg7Data) || isDataAvailable(dg6Data) || isDataAvailable(dg1Data)}
 					<h5 class="text-light">{frequency().toFixed(2)} Hz</h5>
 				{/if}
-				<div class="col-8">
+				<div class="col-md-8">
 					<div class="row gx-3">
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={1} dgData={dgData(dg1Data)} />
 						</div>
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={4} dgData={dgData(noData)} />
 						</div>
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={5} dgData={dgData(noData)} />
 						</div>
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={6} dgData={dgData(dg6Data)} />
 						</div>
 					</div>
 					<div class="row gx-3">
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={7} dgData={dgData(dg7Data)} />
 						</div>
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={8} dgData={dgData(dg8Data)} />
 						</div>
-						<div class="col-3 py-2">
+						<div class="col-md-3 col-6 py-2">
 							<Unit unit={9} dgData={dgData(dg9Data)} />
 						</div>
 					</div>
 				</div>
-				<div class="col-4 py-2">
+				<div class="col-md-4 py-2">
 					<Plts {weatherData} {it1Data} {it2Data} {lvsw1Data} {lvsw2Data} />
 				</div>
 			</div>
@@ -198,6 +201,10 @@
 </style> -->
 
 <style>
+	h4 {
+		margin: 0px;
+		font-size: 1.5rem;
+	}
 	h5 {
 		margin: 0px;
 		font-size: 2.3rem;

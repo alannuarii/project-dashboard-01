@@ -23,13 +23,13 @@
 				<h6>{dgData[0]._value > 0 ? dgData[0]._value.toFixed(0) : 0} kW</h6>
 			</div>
 		</div>
-		<div class="card rounded-0 mb-2">
+		<div class="card rounded-0 mb-2 d-none d-md-block">
 			<div class="card-header bg-dark text-light">Reactive Power</div>
 			<div class="card-body bg-dark-subtle">
 				<h6>{dgData[6]._value > 0 ? dgData[6]._value.toFixed(0) : 0} kVAR</h6>
 			</div>
 		</div>
-		<div class="card rounded-0">
+		<div class="card rounded-0 d-none d-md-block">
 			<div class="card-header bg-dark text-light">Power Factor</div>
 			<div class="card-body bg-dark-subtle">
 				<h6>{dgData[5]._value > 0 ? dgData[5]._value.toFixed(2) : 0}</h6>

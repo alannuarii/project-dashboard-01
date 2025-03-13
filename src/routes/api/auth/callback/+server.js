@@ -5,12 +5,12 @@ import { OAuth2Client } from "google-auth-library";
  import { encodeBase32LowerCase } from '@oslojs/encoding';
  import jwt from "jsonwebtoken";
  
- const CLIENT_ID = "942802219199-hrnqvkm5c0dgtfq73t7v3qagkd4nr3qp.apps.googleusercontent.com";
- const CLIENT_SECRET = "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";
- const REDIRECT_URI = "http://localhost:3000/api/auth/callback";
+ const CLIENT_ID = process.env.CLIENT_ID;
+ const CLIENT_SECRET = process.env.CLIENT_SECRET;
+ const REDIRECT_URI = process.env.REDIRECT_URI;
  
  const oauth2Client = new OAuth2Client(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI);
- const JWT_SECRET = "your_jwt_secret"; // Ganti dengan kunci rahasia yang kuat
+ const JWT_SECRET = process.env.JWT_SECRET;
  const JWT_EXPIRES_IN = "30d"; // Masa berlaku token
  
  export async function GET({ url, cookies }) {
