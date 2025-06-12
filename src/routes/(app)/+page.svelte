@@ -127,7 +127,7 @@
 </script>
 
 <section class="desktop">
-	<div class="container-fluid mb-3">
+	<div class="container-fluid">
 		{#if error}
 			<p class="text-center p-5">Error: {error}</p>
 		{:else}

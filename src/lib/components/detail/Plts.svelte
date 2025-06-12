@@ -117,7 +117,7 @@
 			<div class="spinner-border text-light mb-2" role="status">
 				<span class="visually-hidden">Loading...</span>
 			</div>
-			<p>Memuat data PLTS Sangihe...</p>
+			<p>Memuat data PLTS...</p>
 		</div>
 	{/if}
 </div>
