@@ -27,10 +27,7 @@
 					</div>
 				</div>
 			</div>
-		{:else}
-			<h5 class="text-center">Loading</h5>
-		{/if}
-		{#if isDataAvailable(it1Data) || isDataAvailable(it2Data)}
+
 			<div class="row gx-2">
 				<div class="col-6">
 					<div class="card rounded-0 mb-2">
@@ -62,17 +59,49 @@
 				</div>
 			</div>
 		{:else}
-			<h5 class="text-center">Loading</h5>
+			<!-- Placeholder cards saat data belum tersedia -->
+			<div class="row gx-2">
+				<div class="col-6">
+					<div class="card rounded-0 mb-2">
+						<div class="card-header bg-dark text-light">Feeder #1</div>
+						<div class="card-body bg-dark-subtle">
+							<h6>0 kW</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="card rounded-0 mb-2">
+						<div class="card-header bg-dark text-light">Feeder #2</div>
+						<div class="card-body bg-dark-subtle">
+							<h6>0 kW</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row gx-2">
+				<div class="col-6">
+					<div class="card rounded-0 mb-2">
+						<div class="card-header bg-dark text-light">Status</div>
+						<div class="card-body bg-dark-subtle">
+							<h6>-</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="card rounded-0 mb-2">
+						<div class="card-header bg-dark text-light">Status</div>
+						<div class="card-body bg-dark-subtle">
+							<h6>-</h6>
+						</div>
+					</div>
+				</div>
+			</div>
 		{/if}
 	</div>
 </div>
 
 <style>
-	h5 {
-		margin: 0px;
-		font-size: 0.9rem;
-		font-weight: 600;
-	}
 	h6,
 	.card-header {
 		margin: 0px;

@@ -13,13 +13,11 @@
 
 <div class="card bg-dark rounded-0 border-2 border-light p-2">
 	<div class="mb-2">
-		<h5 class="text-light">PLTS</h5>
-		{#if isDataAvailable(lvsw1Data) || isDataAvailable(lvsw2Data)}
-			{#if lvsw1Data[0]._value + lvsw2Data[0]._value !== 0}
-				<span class="badge rounded-0 text-bg-success">Operating</span>
-			{:else}
-				<span class="badge rounded-0 text-bg-warning">Standby</span>
-			{/if}
+		<a href="/plts" class="unit d-block text-light">PLTS</a>
+		{#if lvsw1Data[0]?._value + lvsw2Data[0]?._value === 0}
+			<span class="badge rounded-0 text-bg-warning">Standby</span>
+		{:else}
+			<span class="badge rounded-0 text-bg-success">Operating</span>
 		{/if}
 	</div>
 	{#if isDataAvailable(lvsw1Data) || isDataAvailable(lvsw2Data)}
@@ -28,7 +26,7 @@
 				<div class="card rounded-0 mb-2">
 					<div class="card-header bg-dark text-light">Active Power</div>
 					<div class="card-body bg-dark-subtle">
-						<h6>{(lvsw1Data[0]._value + lvsw2Data[0]._value).toFixed(0)} kW</h6>
+						<h6>{(lvsw1Data[0]?._value + lvsw2Data[0]?._value).toFixed(0)} kW</h6>
 					</div>
 				</div>
 			</div>
@@ -36,7 +34,7 @@
 				<div class="card rounded-0 mb-2 d-none d-md-block">
 					<div class="card-header bg-dark text-light">Reactive Power</div>
 					<div class="card-body bg-dark-subtle">
-						<h6>{(lvsw1Data[4]._value + lvsw2Data[4]._value).toFixed(0)} kVAR</h6>
+						<h6>{(lvsw1Data[4]?._value + lvsw2Data[4]?._value).toFixed(0)} kVAR</h6>
 					</div>
 				</div>
 			</div>
@@ -45,16 +43,41 @@
 					<div class="card-header bg-dark text-light">Power Factor</div>
 					<div class="card-body bg-dark-subtle">
 						<h6>
-							{lvsw1Data[3]._value !== 0
-								? lvsw1Data[3]._value.toFixed(2)
-								: lvsw2Data[3]._value.toFixed(2)}
+							{lvsw1Data[3]?._value !== 0
+								? lvsw1Data[3]?._value.toFixed(2)
+								: lvsw2Data[3]?._value.toFixed(2)}
 						</h6>
 					</div>
 				</div>
 			</div>
 		</div>
 	{:else}
-		<h5 class="text-center">Loading</h5>
+		<div class="row gx-2">
+			<div class="col-md-4">
+				<div class="card rounded-0 mb-2">
+					<div class="card-header bg-dark text-light">Active Power</div>
+					<div class="card-body bg-dark-subtle">
+						<h6>0 kW</h6>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card rounded-0 mb-2 d-none d-md-block">
+					<div class="card-header bg-dark text-light">Reactive Power</div>
+					<div class="card-body bg-dark-subtle">
+						<h6>0 kVAR</h6>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card rounded-0 mb-2 d-none d-md-block">
+					<div class="card-header bg-dark text-light">Power Factor</div>
+					<div class="card-body bg-dark-subtle">
+						<h6>0</h6>
+					</div>
+				</div>
+			</div>
+		</div>
 	{/if}
 
 	<!-- BSS  -->
@@ -65,10 +88,11 @@
 </div>
 
 <style>
-	h5 {
+	.unit {
 		margin: 0px;
 		font-size: 0.9rem;
 		font-weight: 600;
+		text-decoration: none;
 	}
 	h6,
 	.card-header {

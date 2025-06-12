@@ -136,6 +136,8 @@
 				<div class="mb-2 d-md-none"><Timer /></div>
 				{#if isDataAvailable(dg9Data) || isDataAvailable(dg8Data) || isDataAvailable(dg7Data) || isDataAvailable(dg6Data) || isDataAvailable(dg1Data)}
 					<h5 class="text-light">{frequency().toFixed(2)} Hz</h5>
+					{:else}
+					<h5 class="text-light">0 Hz</h5>
 				{/if}
 				<div class="col-md-8">
 					<div class="row gx-3">
