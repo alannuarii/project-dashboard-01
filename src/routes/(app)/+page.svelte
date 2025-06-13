@@ -3,9 +3,7 @@
 	import Plts from '$lib/components/Plts.svelte';
 	import Timer from '$lib/components/Timer.svelte';
 	import { onMount } from 'svelte';
-	// import Pltd from '../../lib/components/PLTD.svelte';
-	// import Plts from '../../lib/components/PLTS.svelte';
-	// import Main from '../../lib/components/mobile/Main.svelte';
+	import Error from '$lib/components/Error.svelte';
 
 	let dg1Data = [];
 	let dg6Data = [];
@@ -129,14 +127,14 @@
 <section class="desktop">
 	<div class="container-fluid">
 		{#if error}
-			<p class="text-center p-5">Error: {error}</p>
+			<Error message={error} />
 		{:else}
 			<div class="row text-center">
 				<h4 class="text-light mb-2 d-md-none">Dashboard PLTD Tahuna</h4>
 				<div class="mb-2 d-md-none"><Timer /></div>
 				{#if isDataAvailable(dg9Data) || isDataAvailable(dg8Data) || isDataAvailable(dg7Data) || isDataAvailable(dg6Data) || isDataAvailable(dg1Data)}
 					<h5 class="text-light">{frequency().toFixed(2)} Hz</h5>
-					{:else}
+				{:else}
 					<h5 class="text-light">0 Hz</h5>
 				{/if}
 				<div class="col-md-8">

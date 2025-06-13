@@ -1,6 +1,7 @@
 <script>
 	import Unit from '$lib/components/detail/Unit.svelte';
 	import Timer from '$lib/components/Timer.svelte';
+	import Error from '$lib/components/Error.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { get } from 'svelte/store';
@@ -37,7 +38,7 @@
 <section class="desktop">
 	<div class="container-fluid mb-3">
 		{#if error}
-			<p class="text-center p-5">Error: {error}</p>
+			<Error message={error} />
 		{:else}
 			<div class="row text-center">
 				<h4 class="text-light mb-2 d-md-none">Dashboard PLTD Tahuna</h4>
