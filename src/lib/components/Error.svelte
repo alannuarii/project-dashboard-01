@@ -1,12 +1,12 @@
 <script>
-	import error from '../img/error.png';
+	import error from '../img/error.gif';
 	export let message = '';
 </script>
 
 {#if message}
 	<div class="container-fluid">
 		<div class="d-flex justify-content-center">
-			<img src={error} class="img-fluid" alt="" />
+			<img src={error} class="img-fluid rounded-5" alt="" />
 		</div>
 		<div class="d-flex justify-content-center">
 			<button
